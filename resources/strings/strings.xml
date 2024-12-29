@@ -1,0 +1,33 @@
+<strings>
+    <string id="AppName">Moon App</string>
+    <string id="App_Author">by Judex</string>
+    <string id="App_Version">v2.0.7</string>
+
+    <!-- for settings -->
+    <string id="App_Version_Title">App version</string>
+
+    <string id="group1Title">Simulation of latitude and longitude</string>
+    <string id="group1Description">If GPS is not available, you may enter any position here, to simulate the moon data.</string>
+
+    <string id="LatLonSimulatorDesc">Enable or disable the simulation of GPS-position</string>
+    <string id="LatSimulatorDesc">Simulated latitude value as float (northern hemisphere: positive, southern hemisphere: negative)</string>
+    <string id="LonSimulatorDesc">Simulated longitude value as float (east meridian: positive, west meridian: negative)</string>
+
+    <string id="OverrideTimezoneDesc">Correction of time zone (-12 to 12, 0 = no correction)</string>
+    <string id="OverrideDSTDesc">Correction of daylight saving time (-1 to 1, 0 = no correction)</string>
+    <!--string id="group2Title">Override timezone and/or daylight saving time</string-->
+    <string id="group2Title">Correction of time zone</string>
+    <!--string id="group2Description">The watch is calculating the timezone and the daylight saving time automatically by the set date and the GPS-position. If the calculation is wrong, you may enter an relative time-offset in hours (e.g.: -2 will substract 2 hours from the actual time to display the moon data).</string-->
+    <string id="group2Description">The watch is calculating the time zone and daylight saving time automatically by the set date and the GPS-position. If the calculation by the operating system is wrong, you may enter an relative time-offset in hours (e.g.: -2 will substract 2 hours from the actual time to display the moon data).</string>
+
+
+    
+
+    <string id="label_altitude">Alt:</string>
+    <string id="label_latitude">Lat:</string>
+    <string id="label_longitude">Lon:</string>
+
+    <string id="label_waiting_gps">searching GPS</string>
+
+
+</strings>

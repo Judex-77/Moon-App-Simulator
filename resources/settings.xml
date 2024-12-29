@@ -1,0 +1,28 @@
+<settings>
+
+    <setting propertyKey="@Properties.appVersion" title="@Strings.App_Version_Title">
+        <settingConfig type="alphaNumeric" readonly="true" />
+    </setting>
+
+    <group id="groupName2" title="@Strings.group2Title" description="@Strings.group2Description">
+        <setting propertyKey="@Properties.OverrideTimezone" title="@Strings.OverrideTimezoneDesc">
+            <settingConfig type="numeric" min="-12" max="12" />
+        </setting>
+        <!--setting propertyKey="@Properties.OverrideDST" title="@Strings.OverrideDSTDesc">
+            <settingConfig type="numeric" min="-1" max="1" />
+        </setting-->
+    </group>
+
+    <group id="groupName1" title="@Strings.group1Title" description="@Strings.group1Description">
+        <setting propertyKey="@Properties.LatLonSimulator" title="@Strings.LatLonSimulatorDesc">
+            <settingConfig type="boolean" />
+        </setting>
+        <setting propertyKey="@Properties.LatSimulator" title="@Strings.LatSimulatorDesc">
+            <settingConfig type="numeric" min="-90" max="90" />
+        </setting>
+        <setting propertyKey="@Properties.LonSimulator" title="@Strings.LonSimulatorDesc">
+            <settingConfig type="numeric" min="-180" max="180" />
+        </setting>
+    </group>
+
+</settings>

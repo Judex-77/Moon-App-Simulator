@@ -1,0 +1,26 @@
+<layout id="Layout_Moon_4">
+
+    <button x="0" y="28.57%" width="28.57%" height="42.86%" background="Graphics.COLOR_BLACK" behavior="onPreviousDay">
+        <!--state id="stateDefault" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateHighlighted" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateSelected" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateDisabled" color="Graphics.COLOR_BLACK" /-->
+    </button>
+
+    <button x="71.43%" y="28.57%" width="28.57%" height="42.86%" background="Graphics.COLOR_BLACK" behavior="onNextDay">
+        <!--state id="stateDefault" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateHighlighted" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateSelected" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateDisabled" color="Graphics.COLOR_BLACK" /-->
+    </button>
+
+    <button x="35.71%" y="28.57%" width="28.57%" height="42.86%" background="Graphics.COLOR_BLACK" behavior="onToday">
+        <!--state id="stateDefault" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateHighlighted" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateSelected" color="Graphics.COLOR_DK_GRAY" />
+        <state id="stateDisabled" color="Graphics.COLOR_BLACK" /-->
+    </button>
+
+    <label id="Date" x="center" y="83.93%" font="Graphics.FONT_SYSTEM_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+
+</layout>
