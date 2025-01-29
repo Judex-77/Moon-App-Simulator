@@ -1,7 +1,7 @@
 <strings>
     <string id="AppName">Moon App</string>
     <string id="App_Author">by Judex</string>
-    <string id="App_Version">v2.0.7</string>
+    <string id="App_Version">v2.0.8</string>
 
     <!-- for settings -->
     <string id="App_Version_Title">App version</string>

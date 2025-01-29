@@ -42,7 +42,7 @@ public var MoonPeriodicTerms_NewFull = [] as Lang.Array;
 public var MoonPeriodicTerms_Quarters = [] as Lang.Array;
 public var MoonPeriodicTerms_ArgsPlanets = [] as Lang.Array;
 
-public const MoonPicAngleCorrection = -20.0d as Lang.Double;
+public const MoonPicAngleCorrection = 20.0d as Lang.Double;
 
 class MoonAppApp extends Application.AppBase {
 

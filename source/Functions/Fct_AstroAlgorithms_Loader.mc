@@ -31,8 +31,8 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
         :year   => 2024,
         :month  => 12,
         :day    => 1,
-        :hour   => 0,
-        :minute => 0,
+        :hour   => 22,
+        :minute => 29,
         :second => 0
     };
     var tDuration = new Time.Duration(DayOffset) as Lang.Object;
@@ -55,8 +55,8 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
     
     var tUTC = Gregorian.utcInfo(tNow, Time.FORMAT_SHORT);
     var HU = (tUTC.hour + (tUTC.min.toDouble() / 60.0d) + (tUTC.sec.toDouble() / 3600.0d)) as Lang.Double;
-    //var JD0U = Date2JD0(tUTC.day, tUTC.month, tUTC.year) as Lang.Double; // JD at midnight
-    var JD0U = Date2JD0(t.day, t.month, t.year) as Lang.Double; // JD at midnight
+    var JD0U = Date2JD0(tUTC.day, tUTC.month, tUTC.year) as Lang.Double; // JD at midnight UTC
+    var JD0 = Date2JD0(t.day, t.month, t.year) as Lang.Double; // JD at midnight local
     var JDU  = JD0U + HU / 24.0d as Lang.Double; // JD now in UTC
 
     var ΔT = DeltaT(tUTC.year) as Lang.Double; // difference between dynamic time and UTC (TDT-UT), in seconds
@@ -95,11 +95,11 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
         result["Sun_Now_AzAlt"] = SunNow;
     }
     if (astroDataContent["SunRTS"] == true) { 
-        SunRTS = SunRiseTransitSet(JD0U, lat, lon, ΔT, height, TimeZone);
+        SunRTS = SunRiseTransitSet(JD0, lat, lon, ΔT, height, TimeZone);
         result["Sun_Today_RTS"] = SunRTS;
     }
     if (astroDataContent["SunEvents"] == true) { 
-        SunEvents = SunEventTimes(JD0U, lat, lon, ΔT, height, TimeZone);
+        SunEvents = SunEventTimes(JD0, lat, lon, ΔT, height, TimeZone);
         result["Sun_Today_events"] = SunEvents;
     }
         
@@ -132,7 +132,7 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
         result["Moon_Now_illu_zenithAngle"] = MoonIllu["zenithAngle"];
         result["Moon_Now_moonAge"] = MoonIllu["phase"];
 
-        MoonPeriod = MoonEventDates(JD0U, tNow, tUTC, ΔT, TimeZone, lat, lon, 2, 0, true);
+        MoonPeriod = MoonEventDates(JD0, tNow, tUTC, ΔT, TimeZone, lat, lon, 2, 0, true);
         var tB = MoonPeriod[0]["moment"];
         var tE = MoonPeriod[1]["moment"];
         var durationPeriod = tE.subtract(tB);
@@ -148,7 +148,7 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
     }
 
     if (astroDataContent["MoonRTS"] == true) {
-        var MoonRTS = MoonRiseTransitSet(JD0U, lat, lon, ΔT, height, TimeZone, astroDataContent["MoonAccuracy"]);
+        var MoonRTS = MoonRiseTransitSet(JD0, lat, lon, ΔT, height, TimeZone, astroDataContent["MoonAccuracy"]);
         result["Moon_Today_rise_bool"] = MoonRTS["rise_bool"];
         result["Moon_Today_rise_label"] = "Rise";
         if (MoonRTS["rise_bool"] == true) {
@@ -195,7 +195,7 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
         var ΔTday = ΔT / 86400.0d as Lang.Double;
         for (var i = 0; i <= (24.0d / MoonDayStep); i++) {
             ti = i.toDouble() * (MoonDayStep);
-            JDU  = JD0U + ΔTday + (ti - TimeZone) / 24.0d;
+            JDU  = JD0 + ΔTday + (ti - TimeZone) / 24.0d;
             MoonDay = MoonPosition(JDU, lat, lon, height, 1, true);
             MoonDayAA = Equ2AzAlt(JDU, lat, lon, MoonDay);
             MoonDay["az"] = MoonDayAA["az"];
@@ -206,7 +206,7 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
     }
 
     if (astroDataContent["MoonEvents"] == true) {
-        MoonEvents = MoonEventDates(JD0U, tNow, tUTC, ΔT, TimeZone, lat, lon, 5, null, false);
+        MoonEvents = MoonEventDates(JD0, tNow, tUTC, ΔT, TimeZone, lat, lon, 5, null, false);
         for (var i = 0; i < MoonEvents.size(); i++) {
             Sun = SunPosition(MoonEvents[i]["JD"], lat, lon, height);
             Moon = MoonPosition(MoonEvents[i]["JD"], lat, lon, height, astroDataContent["MoonAccuracy"], false);
@@ -226,7 +226,7 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
     }
 
     if (astroDataContent["MoonPeriod"] == true) {
-        MoonPeriod = MoonEventDates(JD0U, tNow, tUTC, ΔT, TimeZone, lat, lon, 2, 0, true);
+        MoonPeriod = MoonEventDates(JD0, tNow, tUTC, ΔT, TimeZone, lat, lon, 2, 0, true);
         var tB = MoonPeriod[0]["moment"];
         var tE = MoonPeriod[1]["moment"];
         var durationPeriod = tE.subtract(tB);
@@ -236,7 +236,7 @@ function getAstroData (myLocation, height as Lang.Double, astroDataContent as La
     }
 
     if (astroDataContent["MoonPerigeeApogee"] == true) {
-        MoonPerigeeApogee = MoonApogeePerigee(JD0U, tNow, tUTC, ΔT, TimeZone, lat, lon);
+        MoonPerigeeApogee = MoonApogeePerigee(JD0, tNow, tUTC, ΔT, TimeZone, lat, lon);
         for (var i = 0; i < MoonPerigeeApogee.size(); i++) {
             Moon = MoonPosition(MoonPerigeeApogee[i]["JD"], lat, lon, height, null, false);
             MoonNow = Equ2AzAlt(MoonPerigeeApogee[i]["JD"], lat, lon, Moon);

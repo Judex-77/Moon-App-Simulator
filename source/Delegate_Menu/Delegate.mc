@@ -10,7 +10,7 @@ class MoonAppDelegate extends WatchUi.BehaviorDelegate {
 
     function onMenu() {
         var menu = new WatchUi.Menu2({
-            :title => "Moon App v2.0.7"
+            :title => "Moon App v2.0.8"
         });
         var delegate;
         menu.addItem(

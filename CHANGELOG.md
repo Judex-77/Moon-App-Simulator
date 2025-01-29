@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.8
+
+- Bugfixes:
+    - Correction of calculation of actual azimuth and altitude of moon with consideration to time zones.
+    - Correction of parallactic angle of the moon picture.
+
 ## v2.0.7
 
 - Bugfix: When the difference between the actual time and midnight was smaller than the difference between UTC and time zone, the calculation of moon data was executed for the wrong day.
