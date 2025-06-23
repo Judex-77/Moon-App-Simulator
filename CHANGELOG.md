@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.9
+- Changed to SDK Build 8.2.1
+- Added support for Devices:
+    - Forerunner® 570 42mm
+    - Forerunner® 570 47mm
+    - Forerunner® 970
+    - vívoactive® 6
+
 ## v2.0.8
 
 - Bugfixes:
