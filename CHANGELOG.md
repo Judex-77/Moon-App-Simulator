@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.10
+- Changed to SDK Build 8.3.0
+- Added support for Devices:
+    - fēnix® 8 47mm / 51mm / tactix 8 47mm / 51mm / quatix 8 47mm 51mm
+    - fēnix® 8 Pro 47mm / 51mm / MicroLED
+    - Venu® 4 41mm
+    - Venu® 4 45mm
+
 ## v2.0.9
 - Changed to SDK Build 8.2.1
 - Added support for Devices:
