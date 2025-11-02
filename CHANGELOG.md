@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.11
+- Added support for Devices:
+    - D2™ Mach 2
+
 ## v2.0.10
 - Changed to SDK Build 8.3.0
 - Added support for Devices:

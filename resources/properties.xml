@@ -1,5 +1,5 @@
 <properties>
-    <property id="appVersion" type="string">v2.0.10</property>
+    <property id="appVersion" type="string">v2.0.11</property>
     <property id="LatLonSimulator" type="boolean">false</property>
     <property id="LatSimulator" type="double">51.558471</property>
     <property id="LonSimulator" type="double">13.004320</property>
